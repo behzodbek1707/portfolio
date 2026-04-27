@@ -104,7 +104,6 @@ export default function Contact() {
           <div className="card reveal reveal-d2" ref={rightRef}
             style={{ display: 'flex', flexDirection: 'column', gap: '1rem', cursor: 'none' }}>
 
-            {/* Name */}
             <div>
               <label style={{ fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: '0.4rem' }}>Name</label>
               <input type="text" placeholder="Your name" value={form.name}
