@@ -41,7 +41,7 @@ export default function Hero() {
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}
             style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem', flexWrap: 'wrap' }}>
             <a href="#about" className="btn btn-primary">Explore Profile →</a>
-            <a href="../public/Behzodbek-Abdumutalov.pdf" download="Behzodbek-Abdumutalov.pdf" className="btn btn-outline">Download CV ↓</a>
+            <a href="/Behzodbek-Abdumutalov.pdf" download="Behzodbek-Abdumutalov.pdf" className="btn btn-outline">Download CV ↓</a>
           </motion.div>
         </div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
             backdropFilter: 'blur(12px)',
           }}>
             <img
-              src="../public/profile.jpg"
+              src="/profile.jpg"
               alt="Behzod"
               onError={e => { e.target.style.display = 'none' }}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
