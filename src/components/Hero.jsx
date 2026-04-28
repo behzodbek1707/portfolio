@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
     <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 10, padding: '0 2rem' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', paddingTop: '5rem' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', paddingTop: '4rem' }}>
 
         <div className="hero-grid">
 

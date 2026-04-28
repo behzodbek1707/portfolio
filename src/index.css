@@ -277,3 +277,11 @@ button { cursor: none; }
   .btn { font-size: 0.7rem; padding: 0.6rem 1.1rem; }
   .sec-title { font-size: clamp(1.5rem, 7vw, 2rem); }
 }
+
+.hero-grid > div:first-child {
+  position: relative;
+  z-index: 11;
+}
+.hero-grid {
+  position: relative;
+}
