@@ -48,7 +48,7 @@ export default function Hero() {
               style={{
                 fontFamily: 'Syne, sans-serif',
                 fontWeight: 800,
-                fontSize: 'clamp(2rem, 2.8vw, 3.2rem)',
+                fontSize: 'clamp(2rem, 3.8vw, 4rem)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.03em',
               }}
