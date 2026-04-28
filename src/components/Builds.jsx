@@ -9,12 +9,12 @@ const projects = [
     demo: null, repo: 'https://github.com/behzod1205/nodejs-trello-service', emoji: '📋' },
   { id: '02', featured: false,
     name: 'Coin Collector Manager',
-    desc: '💰 A structured coin collection management system built with Node.js.Designed to help users catalog, organize, and track coin collections with scalable data models and clean API architecture for easy integration with frontend or mobile apps.',
+    desc: '💰 A structured coin collection management system built with Node.js. Designed to help users catalog, organize, and track coin collections with scalable data models and clean API architecture for easy integration with frontend or mobile apps.',
     stack: ['Node.js', 'Express.js', 'PostgreSQL'],
     demo: null, repo: 'https://github.com/behzod1205/coin_collection_manager' },
   { id: '03', featured: false,
     name: 'Expense Tracker',
-    desc: '💸 A simple yet effective expense tracking system for personal finance management.Built to help users log income and expenses, categorize transactions, and gain insights into their spending patterns through a clean and structured interface.',
+    desc: '💸 A simple yet effective expense tracking system for personal finance management. Built to help users log income and expenses, categorize transactions, and gain insights into their spending patterns through a clean and structured interface.',
     stack: ['Node.js', 'Express.js', 'HTML', 'CSS'],
     demo: null, repo: 'https://github.com/behzod1205/portfolio/tree/main/Project_1' },
 ]
@@ -24,13 +24,10 @@ function Card({ p, delay }) {
   const [hov, setHov] = useState(false)
 
   return (
-    <div className={`card reveal reveal-d${delay}`} ref={ref}
+    <div className={`card reveal reveal-d${delay} ${p.featured ? 'project-featured' : ''}`} ref={ref}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
       style={{
-        display: 'flex', flexDirection: p.featured ? 'row' : 'column',
-        alignItems: p.featured ? 'center' : 'flex-start',
-        gap: p.featured ? '2.5rem' : 0,
-        gridColumn: p.featured ? 'span 2' : 'span 1',
+        display: 'flex', flexDirection: 'column', gap: 0,
         cursor: 'none',
         borderColor: hov ? 'rgba(0,240,255,0.28)' : 'var(--border)',
         transform: hov ? 'translateY(-5px)' : 'none',
@@ -51,19 +48,14 @@ function Card({ p, delay }) {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.3rem' }}>
           {p.stack.map(s => <span key={s} className="stack-tag">{s}</span>)}
         </div>
-        <div style={{ display: 'flex', gap: '0.8rem' }}>
+        <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
           {p.demo && <a href={p.demo} className="btn btn-primary" style={{ fontSize: '0.7rem', padding: '0.55rem 1.2rem' }}>Live Demo ↗</a>}
-          {p.repo && <a href={p.repo} className="btn btn-outline" style={{ fontSize: '0.7rem', padding: '0.55rem 1.2rem' }}>GitHub ⌥</a>}
+          {p.repo && <a href={p.repo} target="_blank" rel="noreferrer" className="btn btn-outline" style={{ fontSize: '0.7rem', padding: '0.55rem 1.2rem' }}>GitHub ⌥</a>}
         </div>
       </div>
 
       {p.featured && (
-        <div style={{
-          width: 240, height: 140, flexShrink: 0,
-          background: 'linear-gradient(135deg, rgba(0,240,255,0.07), rgba(79,142,255,0.07))',
-          border: '1px solid var(--border)', borderRadius: 4,
-          display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.8rem',
-        }}>{p.emoji}</div>
+        <div className="project-visual">{p.emoji}</div>
       )}
     </div>
   )
@@ -79,7 +71,7 @@ export default function Projects() {
           <div className="sec-label">03 / Projects</div>
           <h2 className="sec-title" style={{ marginBottom: '2.5rem' }}>Featured <em>Work</em></h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem' }}>
+        <div className="projects-grid">
           {projects.map((p, i) => <Card key={p.id} p={p} delay={i + 1} />)}
         </div>
       </div>

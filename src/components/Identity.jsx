@@ -4,46 +4,34 @@ const stats = [
   { num: '1+',  label: 'Years Experience' },
   { num: '10+', label: 'Projects Shipped' },
   { num: '∞',   label: 'Lines of Code' },
-  { num: '∞', label: 'Cups of Coffee' },
+  { num: '∞',   label: 'Cups of Coffee' },
 ]
 
 const skillGroups = [
-  {
-    title: 'Frontend',
-    tags: ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS']
-  },
-  {
-    title: 'Backend',
-    tags: ['Node.js', 'Express', 'REST APIs']
-  },
-  {
-    title: 'Databases',
-    tags: ['MongoDB', 'PostgreSQL']
-  },
-  {
-    title: 'Languages',
-    tags: ['JavaScript', "TypeScript", 'Python (Basics)', 'C (Basics)', "SQL"]
-  },
-  {
-    title: 'Data Structures & Algorithms',
-    tags: ['Arrays', 'Objects', 'Recursion', 'Sorting Basics', 'Problem Solving']
-  },
-  {
-    title: 'Tools',
-    tags: ['Git', 'GitHub', 'VS Code', 'Postman']
-  }
+  { title: 'Frontend',                   
+    tags: ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'] },
+  { title: 'Backend',                    
+    tags: ['Node.js', 'Express', 'REST APIs'] },
+  { title: 'Databases',                  
+    tags: ['MongoDB', 'PostgreSQL'] },
+  { title: 'Languages',                  
+    tags: ['JavaScript', 'TypeScript', 'Python (Basics)', 'C (Basics)', 'SQL'] },
+  { title: 'Data Structures & Algorithms', 
+    tags: ['Arrays', 'Objects', 'Recursion', 'Sorting Basics', 'Problem Solving'] },
+  { title: 'Tools',                      
+    tags: ['Git', 'GitHub', 'VS Code', 'Postman'] },
 ]
 
 export default function About() {
-  const textRef  = useReveal()
-  const statsRef = useReveal()
+  const textRef   = useReveal()
+  const statsRef  = useReveal()
   const skillsRef = useReveal()
 
   return (
     <section id="about">
       <div className="section-wrap">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', marginBottom: '5rem' }}>
 
+        <div className="two-col" style={{ marginBottom: '5rem' }}>
           <div className="reveal" ref={textRef}>
             <div className="sec-label">01 / About Me</div>
             <h2 className="sec-title">I write code that <em>matters</em>.</h2>
@@ -56,8 +44,7 @@ export default function About() {
             <a href="#contact" className="btn btn-outline">Get In Touch →</a>
           </div>
 
-          <div className="reveal reveal-d2" ref={statsRef}
-            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem' }}>
+          <div className="stats-grid reveal reveal-d2" ref={statsRef}>
             {stats.map(s => (
               <div key={s.label} className="card" style={{ textAlign: 'center', cursor: 'none' }}>
                 <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '2.4rem', color: 'var(--accent)', display: 'block', marginBottom: '0.3rem' }}>{s.num}</div>
@@ -70,7 +57,7 @@ export default function About() {
         <div id="skills" className="reveal reveal-d2" ref={skillsRef}>
           <div className="sec-label">02 / Skills</div>
           <h2 className="sec-title" style={{ marginBottom: '2rem' }}>My Tech <em>Stack</em></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.2rem' }}>
+          <div className="three-col">
             {skillGroups.map(g => (
               <div key={g.title} className="card" style={{ cursor: 'none' }}>
                 <div style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent2)', marginBottom: '1rem' }}>
@@ -83,6 +70,7 @@ export default function About() {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   )
