@@ -27,7 +27,7 @@ export default function Hero() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 300px',
-          gap: '4rem',
+          gap: '6rem',
           alignItems: 'center',
         }}>
 
@@ -48,7 +48,7 @@ export default function Hero() {
               style={{
                 fontFamily: 'Syne, sans-serif',
                 fontWeight: 800,
-                fontSize: 'clamp(2rem, 3.8vw, 4rem)',
+                fontSize: 'clamp(2rem, 2.8vw, 3.2rem)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.03em',
               }}
