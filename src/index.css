@@ -200,9 +200,10 @@ button { cursor: none; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 340px;
-  gap: 3rem;
+  grid-template-columns: 1fr 360px;
+  gap: 5rem;
   align-items: center;
+  max-width: 1000px;
 }
 
 .two-col {
