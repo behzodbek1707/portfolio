@@ -19,20 +19,24 @@ export default function Hero() {
 
         .h-wrap {
           width: 100%;
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 6rem 5rem 3rem 5rem;
+          max-width: var(--container);
+          margin-inline: auto;
+          padding-inline: var(--gutter);
+          padding-top: 6rem;
+          padding-bottom: 3rem;
         }
 
         .h-grid {
           display: grid;
-          grid-template-columns: 1fr 280px;
-          column-gap: 5rem;
+          grid-template-columns: 1fr 1fr;
+          gap: clamp(2rem, 6vw, 6rem);
           align-items: center;
         }
 
         .h-left {
           min-width: 0;
+          justify-self: start;
+          max-width: 520px;
         }
 
         .h-name {
@@ -47,6 +51,9 @@ export default function Hero() {
         .h-right {
           position: relative;
           padding: 1.5rem 0;
+          justify-self: end;
+          width: 100%;
+          max-width: 280px;
         }
 
         .h-frame {
