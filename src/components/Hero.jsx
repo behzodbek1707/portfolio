@@ -26,7 +26,7 @@ export default function Hero() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '5fr 300px',
+          gridTemplateColumns: '1fr 300px',
           gap: '4rem',
           alignItems: 'center',
         }}>
