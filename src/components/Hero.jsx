@@ -20,16 +20,27 @@ export default function Hero() {
       <div
         style={{
           width: '100%',
-          maxWidth: 'var(--container)',
-          marginInline: 'auto',
-          paddingInline: 'var(--gutter)',
-          paddingTop: '5rem',
+          maxWidth: '1100px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          paddingLeft: 'clamp(1.25rem, 5vw, 5rem)',
+          paddingRight: 'clamp(1.25rem, 5vw, 5rem)',
+          paddingTop: '6rem',
           paddingBottom: '3rem',
         }}
       >
-        <div className="hero-grid">
 
-          <div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 320px',
+            gap: '4rem',
+            alignItems: 'center',
+          }}
+          className="hero-layout"
+        >
+
+          <div style={{ minWidth: 0 }}>
             <motion.div
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -74,7 +85,7 @@ export default function Hero() {
               style={{
                 fontSize: '0.95rem',
                 color: 'var(--muted)',
-                maxWidth: 460,
+                maxWidth: 440,
                 lineHeight: 1.8,
                 marginTop: '1.6rem',
               }}
@@ -109,42 +120,52 @@ export default function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
-            style={{ position: 'relative' }}
+            style={{
+              position: 'relative',
+              /* Extra padding to give floating badges room without overflow */
+              paddingTop: '1.5rem',
+              paddingBottom: '1.5rem',
+              paddingRight: '1rem',
+            }}
           >
             <div
               style={{
                 width: '100%',
-                aspectRatio: '4/5',
+                aspectRatio: '3/4',
                 position: 'relative',
                 background: 'rgba(12,17,32,0.9)',
                 border: '1px solid var(--border)',
                 borderRadius: 8,
                 overflow: 'hidden',
-                backdropFilter: 'blur(12px)',
-                boxShadow: '0 24px 64px rgba(0,0,0,0.4)',
+                boxShadow: '0 24px 64px rgba(0,0,0,0.5)',
               }}
             >
               <img
                 src="/profile.jpg"
-                alt="Behzodbek"
-                onError={e => { e.target.style.display = 'none' }}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                alt="Behzodbek Abdumutalov"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  display: 'block',
+                }}
               />
               <div style={{ position: 'absolute', top: 0, right: 0, width: 32, height: 32, borderTop: '2px solid var(--accent)', borderRight: '2px solid var(--accent)' }} />
               <div style={{ position: 'absolute', bottom: 0, left: 0, width: 32, height: 32, borderBottom: '2px solid rgba(168,85,247,0.6)', borderLeft: '2px solid rgba(168,85,247,0.6)' }} />
             </div>
 
             <motion.div
-              animate={{ y: [0, -6, 0] }}
+              animate={{ y: [0, -5, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               style={{
                 position: 'absolute',
-                bottom: -16,
-                left: -16,
-                background: 'rgba(12,17,32,0.95)',
+                bottom: 0,
+                left: -12,
+                background: 'rgba(12,17,32,0.97)',
                 border: '1px solid var(--border)',
-                padding: '0.6rem 1rem',
-                borderRadius: 3,
+                padding: '0.55rem 0.9rem',
+                borderRadius: 4,
                 backdropFilter: 'blur(20px)',
                 display: 'flex',
                 alignItems: 'center',
@@ -152,6 +173,7 @@ export default function Hero() {
                 fontSize: '0.68rem',
                 color: 'var(--text)',
                 whiteSpace: 'nowrap',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
               }}
             >
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', animation: 'pulse 2s infinite', display: 'inline-block', flexShrink: 0 }} />
@@ -159,20 +181,21 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              animate={{ y: [0, 6, 0] }}
+              animate={{ y: [0, 5, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
               style={{
                 position: 'absolute',
-                top: -14,
-                right: -14,
-                background: 'rgba(12,17,32,0.95)',
+                top: 0,
+                right: 0,
+                background: 'rgba(12,17,32,0.97)',
                 border: '1px solid var(--border)',
-                padding: '0.6rem 1rem',
-                borderRadius: 3,
+                padding: '0.55rem 0.9rem',
+                borderRadius: 4,
                 backdropFilter: 'blur(20px)',
                 fontSize: '0.68rem',
                 color: 'var(--muted)',
                 whiteSpace: 'nowrap',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
               }}
             >
               JavaScript · Node · React
@@ -181,12 +204,32 @@ export default function Hero() {
 
         </div>
 
-        <div style={{ paddingTop: '3rem', display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.62rem', color: 'var(--muted)', letterSpacing: '0.12em' }}>
+        <div style={{ paddingTop: '4rem', display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.62rem', color: 'var(--muted)', letterSpacing: '0.12em' }}>
           <div style={{ width: 36, height: 1, background: 'var(--muted)' }} />
           Scroll Down...
         </div>
 
       </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .hero-layout {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+          .hero-layout > div:first-child  { order: 1; }
+          .hero-layout > div:last-child   {
+            order: 2;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+          }
+        }
+        @media (max-width: 520px) {
+          .hero-layout > div:last-child { max-width: 240px !important; }
+        }
+      `}</style>
     </section>
   )
 }
