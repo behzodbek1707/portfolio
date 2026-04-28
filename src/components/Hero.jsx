@@ -7,7 +7,7 @@ export default function Hero() {
   const typed = useTyping(typingWords, 75, 2200)
 
   return (
-    <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 10, padding: '0 2rem' }}>
+    <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 10, padding: '0 4rem' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', paddingTop: '4rem' }}>
 
         <div className="hero-grid">
