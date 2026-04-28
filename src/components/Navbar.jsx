@@ -26,7 +26,7 @@ export default function Navbar() {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '1.1rem 2rem',
+        padding: '1.1rem var(--gutter)',
         background: scrolled || menuOpen ? 'rgba(5,8,16,0.96)' : 'transparent',
         backdropFilter: scrolled || menuOpen ? 'blur(20px)' : 'none',
         borderBottom: scrolled || menuOpen ? '1px solid #1a2a3a' : 'none',
